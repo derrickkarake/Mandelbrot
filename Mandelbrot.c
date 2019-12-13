@@ -66,7 +66,7 @@ int main(int argc, const char **argv) {
             .imaginary = (max_bounds.real - min_bounds.real) / Image_Height
     };
 
-#pragma omp parallel for collapse(2) schedule(dynamic)
+#pragma omp parallel for collapse(2) schedule(dynamic)  //appling the collaps clause for better distribution(balance the load)
     // Loop through the image pixels
     for (int img_y = 0; img_y < Image_Height; img_y++) {
         for (int img_x = 0; img_x < Image_Width; img_x++) {
